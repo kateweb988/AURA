@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //popup1
   let popupBg = document.querySelector('.popup__bg2');
   let popup = document.querySelector('.popup2');
-  let openPopupButtons = document.querySelectorAll('.nav__btn');
+  let openPopupButtons = document.querySelectorAll('.nav__btn, .a1');
   let closePopupButton = document.querySelector('.close-popup2');
 
   openPopupButtons.forEach((button) => {
@@ -407,12 +407,13 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', function () {
   const swiper = new Swiper('.swiper1', {
     slidesPerView: 1,
-    pagination: {
-      el: ".swiper-pagination2",
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+    pagination: {
+      el: ".swiper-pagination1",
     },
   });
   const swiper2 = new Swiper('.swiper2', {
@@ -598,6 +599,87 @@ document.addEventListener('DOMContentLoaded', function () {
       1200: {
         spaceBetween: 20,
         slidesPerView: 2
+      }
+    }
+  });
+  const swiper8 = new Swiper('.swiper-per', {
+    slidesPerView: 6,
+    spaceBetween: 0,
+    pagination: {
+      el: ".swiper-pagination8",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        spaceBetween: 0,
+        loop: true,
+        slidesPerView: 1
+      },
+      767: {
+        spaceBetween: 0,
+        slidesPerView: 1
+      },
+      992: {
+        spaceBetween: 0,
+        slidesPerView: 1
+      },
+      1200: {
+        spaceBetween: 0,
+        slidesPerView: 6
+      }
+    }
+  });
+  const swiper9 = new Swiper('.swiper-per2', {
+    slidesPerView: 6,
+    spaceBetween: 0,
+    pagination: {
+      el: ".swiper-pagination9",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        spaceBetween: 0,
+        loop: true,
+        slidesPerView: 1
+      },
+      767: {
+        spaceBetween: 0,
+        slidesPerView: 1
+      },
+      992: {
+        spaceBetween: 0,
+        slidesPerView: 1
+      },
+      1200: {
+        spaceBetween: 0,
+        slidesPerView: 6
+      }
+    }
+  });
+  const swiper10 = new Swiper('.swiper-per3', {
+    slidesPerView: 6,
+    spaceBetween: 0,
+    pagination: {
+      el: ".swiper-pagination10",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        spaceBetween: 0,
+        loop: true,
+        slidesPerView: 1
+      },
+      767: {
+        spaceBetween: 0,
+        slidesPerView: 2
+      },
+      992: {
+        spaceBetween: 0,
+        slidesPerView: 1
+      },
+      1200: {
+        spaceBetween: 0,
+        slidesPerView: 6
       }
     }
   });
