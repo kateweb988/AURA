@@ -381,7 +381,7 @@ ul.info li
    display: inline-block
    border-radius: 5px
    padding: 0 5px
-.accordeon, .accordeon2
+.accordeon, .accordeon2, .accordeon3, .accordeon4, .accordeon5,  .accordeon6
    padding: 5px 0 30px
    border-bottom: 1px solid #ececec
    margin-bottom: 26px
@@ -391,7 +391,7 @@ ul.info li
    list-style-type: none
 .accordeon__item:first-child .accordeon__button
    margin-top: 0
-.accordeon__button, .accordeon__button2
+.accordeon__button, .accordeon__button2, .accordeon__button3, .accordeon__button4, .accordeon__button5, .accordeon__button6
    width: 100%
    text-align: left
    border: none
@@ -403,9 +403,9 @@ ul.info li
    color: #282828
    display: flex
    justify-content: space-between
-.accordeon__button:hover, .accordeon__button2:hover
+.accordeon__button:hover, .accordeon__button2:hover, .accordeon__button3:hover, .accordeon__button4:hover, .accordeon__button5:hover, .accordeon__button6:hover 
    color: $or
-.accordeon__button:after, .accordeon__button2:after
+.accordeon__button:after, .accordeon__button2:after, .accordeon__button3:after, .accordeon__button4:after, .accordeon__button5:after, .accordeon__button6:after
    content: ""
    position: absolute
    right: 0px
@@ -417,7 +417,7 @@ ul.info li
    bottom: inherit
    margin-bottom: -20px
    transition: all 0.5s ease
-.accordeon__button.active:after, .accordeon__button2.active:after
+.accordeon__button.active:after, .accordeon__button2.active:after, .accordeon__button3.active:after, .accordeon__button4.active:after, .accordeon__button5.active:after, .accordeon__button6.active:after
    content: ""
    position: absolute
    right: 0px
@@ -430,12 +430,12 @@ ul.info li
    transition: all 0.5s ease
    transform: rotate(180deg)
    -webkit-transform: rotate(180deg)
-.accordeon__panel, .accordeon__panel2
+.accordeon__panel, .accordeon__panel2, .accordeon__panel3, .accordeon__panel4, .accordeon__panel5, .accordeon__panel6
    max-height: 0
    overflow: hidden
    margin-left: 0
    transition: all 0.5s ease
-.panel__text, .panel__text2
+.panel__text, .panel__text2, .panel__text3, .panel__text4, .panel__text5, .panel__text6
    list-style-type: none
    padding-top: 0px
    max-width: 688px
@@ -1847,4 +1847,598 @@ input[type="search"]::-webkit-search-results-decoration
    .swiper-wrapper
       width: initial !important
       padding: 0
-
+.about 
+   &__sub 
+      color: rgb(16, 25, 32)
+      font-size: 20px
+      font-weight: 400
+      line-height: 140%
+      margin-bottom: 25px
+      width: 100%
+      max-width: 1105px
+   .news-item__images
+      margin-top: 40px
+.ser 
+   padding: 100px 0
+   &__box 
+      justify-content: space-between
+      flex-wrap: wrap 
+   .main__button
+      top: 35%
+   &__item 
+      width: 32.64%
+      display: flex
+      height: 533px
+      align-items: flex-start
+      justify-content: center
+      margin: 50px 0
+      flex-direction: column 
+      position: relative
+      &:hover
+         a
+            border: 4px solid $or
+         .main__button
+            opacity: 1
+      p 
+         margin-top: 20px
+         color: rgb(16, 25, 32)
+         font-size: 20px
+         font-weight: 600
+         line-height: 130%
+         text-transform: uppercase
+         text-align: left
+      a
+         display: flex
+         align-items: center
+         padding: 60px
+         justify-content: center
+         border: 4px solid rgb(213, 213, 213)
+         transition: 0.5s 
+         width: 100%  
+         height: 100%
+         img 
+            width: 77%
+            height: auto
+            object-fit: contain
+.contacts__pic_2
+   margin: 20px 0 100px
+.container.contacts
+   padding-bottom: 60px !important
+   h2 
+      margin-bottom: 40px
+.range_container 
+   display: flex
+   flex-direction: column
+   width: 100%
+.sliders_control 
+   position: relative
+   min-height: auto
+.form_control 
+   position: relative
+   display: flex
+   justify-content: space-between
+   font-size: 24px
+   color: #635a5a
+   margin-top: 30px
+   span
+      display: flex
+      align-items: center
+   input[type="number"]
+      color: #1b1b1b
+      width: auto
+      height: auto
+      font-size: 14px
+      border: none
+      background: transparent
+      position: absolute
+      top: 7px
+      right: 3px
+      left: inherit
+   &_container 
+      position: relative
+      display: flex
+      width: 100%
+      align-items: center
+      width: 273px
+      height: 31px
+      border-radius: 5px
+      background-color: #f3f3f3
+      justify-content: flex-start
+      padding-left: 14px
+      &__time
+         color: #a8a8a8
+         font-size: 14px
+         margin-right: 16px
+#fromSlider2, #fromSlider3, #fromSlider4, #fromSlider
+   z-index: 20 !important
+input[type=range]::-webkit-slider-thumb
+   -webkit-appearance: none
+   pointer-events: all
+   width: 22px
+   height: 22px
+   background: url(/img/range.svg) no-repeat center 0px  !important
+   background-color: $or
+   cursor: pointer
+   border-radius: 50%
+   border: none
+   top: 0px
+   z-index: 20 !important
+   position: relative
+input[type=range]:nth-child(2)::-webkit-slider-thumb
+   background: url(/img/range.svg) no-repeat center 0px  !important
+   background-color: $or
+   position: relative
+   top: 0px
+   height: 22px
+   z-index: 20 !important
+   width: 22px
+   border-radius: 50%
+input[type=range]::-moz-range-thumb 
+   -webkit-appearance: none
+   pointer-events: all
+   width: 22px
+   z-index: 20 !important
+   height: 22px
+   border-radius: 50%
+   background: url(/img/range.svg) no-repeat center  0px !important
+   background-color: $or
+   cursor: pointer
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button 
+   -webkit-appearance: none
+   appearance: none
+   margin: 0
+   opacity: 0
+input[type="range"] 
+   -webkit-appearance: none
+   appearance: none
+   height: 2px
+   width: 100%
+   display: flex
+   align-items: center
+   position: absolute
+   background-color: #D9D9D9
+   pointer-events: none
+   border: none
+   top: inherit
+   z-index: 2 !important
+   bottom: -53px
+   &:hover, &:focus 
+      border: none !important
+#fromSlider, #fromSlider2, #fromSlider3, #fromSlider4
+   height: 0
+   z-index: 1
+#event-change
+   padding: 20px 0
+   position: absolute
+   color: transparent
+   z-index: -1
+   opacity: 0
+.catalog 
+   .selectCF .titleCF
+      color: rgb(16, 25, 32) !important
+      font-size: 20px
+      font-weight: 400
+      line-height: 130%
+   .selectCF .searchCF input
+      display: none !important
+   .selectCF .arrowCF
+      width: 15px
+      height: 15px
+      right: -31px
+      top: 8px
+      background: url(/img/arr.svg) no-repeat !important
+      background-size: 100% !important
+   .onCF li ul
+      background: white
+      border: 2px solid #e0e5eb
+      left: -27px
+      top: 37px
+      width: max-content
+      border-radius: 10px
+      padding: 10px 20px
+   .onCF .arrowCF
+      top: 6px
+   .selectCF li ul li
+      margin-bottom: 10px
+      color: rgb(16, 25, 32) !important
+      font-size: 20px
+      font-weight: 400
+      line-height: 130%
+      padding-left: 0
+      &:first-child
+         display: none !important
+      &:last-child
+         margin-bottom: 0
+      &:hover 
+         color: $or !important
+   &__item 
+      position: relative
+      margin-bottom: 70px
+      width: 100%
+      height: 555px
+      align-items: flex-start
+      padding: 20px
+      &:nth-child(2n)
+         background: rgb(248, 248, 248)
+         .catalog__right
+            order: 1
+         .catalog__left 
+            order: 2
+            margin-right: 0
+            margin-left: 20px
+   .main__button
+      top: 50%
+      margin-top: -54px
+      pointer-events: none
+   &__links 
+      flex-wrap: wrap
+      a 
+         width: 108px
+         height: 139px
+         display: block
+         position: relative
+         margin-right: 21px
+         &:last-child
+            margin-right: 0
+         img 
+            width: 100%
+            height: 100%
+            object-fit: cover
+   &__left 
+      position: relative
+      height: 100%
+      width: 100%
+      max-width: 512px
+      margin-right: 20px
+      & > img
+         width: 100%
+         height: 100%
+         position: absolute
+         top: 0
+         left: 0
+         object-fit: cover
+      &:hover 
+         .main__button, .main__area 
+            opacity: 1
+   &__right
+      display: flex
+      flex-direction: column 
+      height: 100%
+      align-items: flex-start
+      .catalog__name
+         margin-top: auto
+   &__text 
+      width: 100%
+      max-width: 631px 
+      p 
+         color: rgb(16, 25, 32)
+         font-size: 20px
+         font-weight: 400
+         line-height: 130%
+         margin-bottom: 20px
+   .tabs__nav
+      margin-bottom: 34px
+      overflow-x: auto
+   &__name 
+      margin-bottom: 15px
+      color: rgb(22, 23, 23)
+      font-size: 20px
+      font-family: 'Proxima Nova Rg'
+      font-weight: 700
+      line-height: 140%
+      text-transform: uppercase
+   h1 
+      margin-bottom: 40px
+   .form_control
+      margin-top: 0  
+   .form_control input[type="number"] 
+      width: auto
+      height: 22px
+      color: #161717
+      font-size: 17px
+      font-weight: 500;
+      line-height: 130%
+      border: none
+      background: transparent
+      position: absolute
+      top: 50%
+      z-index: 5
+      right: inherit
+      margin-top: -11px
+      left: 50px
+      &:focus 
+         border: none
+   .form_control_container__time
+      color: rgb(96, 99, 103)
+      font-size: 17px
+      font-weight: 400
+   .form_control_container
+      width: 184px
+      height: 53px
+      background: white
+      z-index: -1
+      border-radius: 0px
+      padding-left: 20px
+      box-sizing: border-box
+      border: 2px solid rgb(224, 229, 235)
+      &:first-child
+         border-right: none
+   &__toggle 
+      align-items: center
+      width: 100%
+      justify-content: space-between
+      margin-bottom: 20px
+      .catalog__name
+         margin-bottom: 0
+      &:last-child
+         margin-bottom: 0
+   &__el 
+      margin-bottom: 50px
+      &_type 
+         .custom-checkbox + label
+            color: rgb(96, 99, 103)
+            font-size: 17px
+            line-height: 130%
+            &:hover 
+               color: $or
+         .custom-checkbox + label::before
+            width: 25px
+            max-width: 25px
+            transition: 0s
+            height: 25px
+            box-sizing: border-box
+            border: 2px solid rgb(224, 229, 235)
+            border-radius: 50%
+            margin-right: 15px
+         .custom-checkbox:checked + label::before 
+            background: url(/img/check2.svg) no-repeat 50% 50%
+            background-color: $or
+            border: 2px solid $or
+            background-size: 15px
+         .custom-checkbox:checked + label
+            color: rgb(22, 23, 23)
+            font-weight: 500
+         .calc__item
+            margin-bottom: 17px
+            &:last-child
+               margin-bottom: 0
+   .tabs__btn
+      border: 1px solid rgb(224, 229, 235)
+      display: flex
+      align-items: center
+      justify-content: center
+      width: max-content
+      height: 49px
+      padding: 0 20px 
+      color: rgb(165, 167, 173)
+      margin-right: 10px
+      color: rgb(96, 99, 103)
+      font-size: 17px
+      font-weight: 500
+      line-height: 130%
+      white-space: nowrap
+      &:last-child
+         margin-right: 0
+      &_active 
+         background: $or
+         border: 1px solid $or
+         color: white !important
+   &__see, &__see2, &__see3, &__see4
+      display: none
+   .local__row
+      margin-bottom: 0 !important
+      & > div
+         margin-right: 60px
+   &__top 
+      align-items: center
+      justify-content: space-between
+      margin-bottom: 27px
+   &__info 
+      flex: 1 0 auto 
+      width: 100%
+      max-width: 365px
+      margin-right: 70px
+   &__items 
+      width: 100%
+      max-width: 100%
+   &__view 
+      p 
+         margin-right: 5px
+         color: rgb(16, 25, 32)
+         font-size: 20px
+         font-weight: 400
+      a 
+         margin-left: 10px
+         &.active 
+            rect
+               stroke: $or
+   &__title 
+      color: rgb(16, 25, 32)
+      font-size: 35px
+      font-weight: 600
+      line-height: 130%
+      text-transform: uppercase
+      margin-bottom: 4px
+   &__sum
+      color: $or
+      font-size: 25px
+      font-weight: 600
+      line-height: 130%
+      text-transform: uppercase
+      margin-bottom: 24px
+      span 
+         color: rgba(16, 25, 32, 0.2)
+         font-size: 25px
+         font-weight: 600
+         line-height: 130%
+         text-decoration: line-through
+         text-transform: uppercase
+         margin-left: 20px
+   &__next 
+      align-items: center
+      color: rgb(0, 26, 52)
+      font-size: 20px
+      font-family: 'Proxima Nova Lt'
+      font-weight: 400
+      text-transform: uppercase
+      .svg
+         margin-left: 7px
+      &:hover 
+         color: $or
+         .svg 
+            path 
+               fill: $or
+   &__nav 
+      align-items: center
+      ul 
+         align-items: center
+         display: flex 
+         li 
+            display: flex 
+            box-sizing: border-box
+            width: 39.48px
+            height: 39.48px
+            align-items: center
+            justify-content: center
+            margin-right: 10px
+            a 
+               display: flex 
+               align-items: center
+               color: rgb(0, 26, 52)
+               font-family: 'Proxima Nova Rg'
+               font-size: 20px
+               justify-content: center
+               width: 100%
+               height: 100%
+               &:hover 
+                  color: $or
+            &.active 
+               border: 2px solid rgb(254, 114, 0)
+               a 
+                  color: $or
+   .accordeon__button, .accordeon__button2, .accordeon__button3, .accordeon__button4, .accordeon__button5, .accordeon__button6
+      color: rgb(22, 23, 23)
+      font-family: 'Proxima Nova Rg'
+      font-size: 20px
+      font-weight: 700
+      line-height: 140%
+      transition: 0s !important
+      text-align: left
+      text-transform: uppercase
+      margin-bottom: 20px  
+   .accordeon, .accordeon2, .accordeon3, .accordeon4, .accordeon5, .accordeon6
+      padding-bottom: 0
+      border-bottom: none
+      .custom-checkbox + label
+         color: rgb(96, 99, 103)
+         font-size: 17px
+         line-height: 130%
+         &:hover 
+            color: $or
+      .custom-checkbox + label::before
+         width: 25px
+         max-width: 25px
+         transition: 0s
+         height: 25px
+         box-sizing: border-box
+         border: 2px solid rgb(224, 229, 235)
+         border-radius: 6px
+         margin-right: 15px
+      .custom-checkbox:checked + label::before 
+         background: url(/img/check2.svg) no-repeat 50% 50%
+         background-color: $or
+         border: 2px solid $or
+         background-size: 15px
+      .custom-checkbox:checked + label
+         color: rgb(22, 23, 23)
+         font-weight: 500
+      .calc__item
+         margin-bottom: 12px
+         &:last-child
+            margin-bottom: 0
+   &__search 
+      width: 100%
+      height: 53px
+      margin-bottom: 20px
+      input 
+         width: 100%
+         height: 100%
+         border: 2px solid rgb(224, 229, 235)
+         font-size: 17px
+         padding-left: 20px
+         &:focus 
+            border: 2px solid $or
+   &__open, &__open2, &__open3, &__open4 
+      color: $or
+      font-size: 17px
+      font-weight: 500
+      line-height: 20px
+      margin-bottom: 20px
+      &:hover 
+         color: #000
+   .accordeon__button:after, .accordeon__button2:after, .accordeon__button3:after, .accordeon__button4:after, .accordeon__button5:after, .accordeon__button6:after
+      background: url(/img/acc.svg) no-repeat !important
+      width: 15px
+      height: 12px
+      transform: rotate(180deg)
+      -webkit-transform: rotate(180deg)
+   .accordeon__button.active:after, .accordeon__button2.active:after, .accordeon__button3.active:after, .accordeon__button4.active:after, .accordeon__button5.active:after, .accordeon__button6.active:after
+      transform: rotate(0deg)
+      -webkit-transform: rotate(0deg)
+   .panel__text, .panel__text2, .panel__text3, .panel__text4, .panel__text5, .panel__text6
+      margin-top: 0
+      transition: 0s !important
+   .accordeon__panel, .accordeon__panel2, .accordeon__panel3, .accordeon__panel4, .accordeon__panel5, .accordeon__panel6
+      transition: 0s !important
+   &__scroll
+      max-height: 210px
+      margin-right: 3px
+      overflow-y: auto
+      padding-bottom: 5px
+   .calc__item
+      img 
+         margin-right: 15px
+.switch  
+   position: relative 
+   display: block 
+   width: 44px 
+   height: 26px 
+.switch input   
+   opacity: 0 
+   width: 0 
+   height: 0 
+   &:focus 
+      border: none !important
+.slider  
+   position: absolute 
+   cursor: pointer 
+   top: 0 
+   left: 0 
+   right: 0 
+   bottom: 0 
+   background: rgb(224, 229, 235)
+   -webkit-transition: .4s 
+   transition: .4s 
+.slider:before  
+   position: absolute 
+   content: "" 
+   height: 18px 
+   width: 18px 
+   left: 4px 
+   bottom: 4px 
+   background-color: white 
+   -webkit-transition: .4s 
+   transition: .4s 
+input:checked + .slider  
+   background-color: $or
+input:checked + .slider:before  
+   -webkit-transform: translateX(18px) 
+   -ms-transform: translateX(18px) 
+   transform: translateX(18px) 
+.slider.round  
+   border-radius: 100px
+.slider.round:before  
+   border-radius: 50% 
+.menu-btn2, .menu-btn3, .menu-btn4, .menu-btn5, .menu-btn6, .menu-btn7
+   display: none

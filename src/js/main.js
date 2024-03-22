@@ -51,28 +51,396 @@ document.addEventListener("DOMContentLoaded", () => {
   // инициализация .tabs как табов
   new ItcTabs('.tabs');
 });
-document.addEventListener('DOMContentLoaded', function () {
-  $(document).ready(function () {
-    $("#up").on('click', function () {
-      $("#incdec input").val(parseInt($("#incdec input").val()) + 1);
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromSlider.value = from;
+    }
+  }
 
-    $("#down").on('click', function () {
-      $("#incdec input").val(parseInt($("#incdec input").val()) - 1);
-    });
+  function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);
+    setToggleAccessible(toInput);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+    }
+  }
 
+  function controlFromSlider(fromSlider, toSlider, fromInput) {
+    const [from, to] = getParsed(fromSlider, toSlider);
+    fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromInput.value = from;
+    }
+  }
+
+  function controlToSlider(fromSlider, toSlider, toInput) {
+    const [from, to] = getParsed(fromSlider, toSlider);
+    fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+    setToggleAccessible(toSlider);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+      toSlider.value = from;
+    }
+  }
+
+  function getParsed(currentFrom, currentTo) {
+    const from = parseInt(currentFrom.value, 10);
+    const to = parseInt(currentTo.value, 10);
+    return [from, to];
+  }
+
+  function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+    const rangeDistance = to.max - to.min;
+    const fromPosition = from.value - to.min;
+    const toPosition = to.value - to.min;
+    controlSlider.style.background = `linear-gradient(
+      to right,
+      ${sliderColor} 0%,
+      ${sliderColor} ${(fromPosition) / (rangeDistance) * 100}%,
+      ${rangeColor} ${((fromPosition) / (rangeDistance)) * 100}%,
+      ${rangeColor} ${(toPosition) / (rangeDistance) * 100}%, 
+      ${sliderColor} ${(toPosition) / (rangeDistance) * 100}%, 
+      ${sliderColor} 100%)`;
+  }
+
+  function setToggleAccessible(currentTarget) {
+    const toSlider = document.querySelector('#toSlider');
+    if (Number(currentTarget.value) <= 0) {
+      toSlider.style.zIndex = 2;
+    } else {
+      toSlider.style.zIndex = 0;
+    }
+  }
+
+  const fromSlider = document.querySelector('#fromSlider');
+  const toSlider = document.querySelector('#toSlider');
+  const fromInput = document.querySelector('#fromInput');
+  const toInput = document.querySelector('#toInput');
+  fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+  setToggleAccessible(toSlider);
+
+  fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+  toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+  fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+  toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromSlider.value = from;
+    }
+  }
+
+  function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);
+    setToggleAccessible(toInput);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+    }
+  }
+
+  function controlFromSlider(fromSlider, toSlider, fromInput) {
+    const [from, to] = getParsed(fromSlider, toSlider);
+    fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromInput.value = from;
+    }
+  }
+
+  function controlToSlider(fromSlider, toSlider, toInput) {
+    const [from, to] = getParsed(fromSlider, toSlider);
+    fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+    setToggleAccessible(toSlider);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+      toSlider.value = from;
+    }
+  }
+
+  function getParsed(currentFrom, currentTo) {
+    const from = parseInt(currentFrom.value, 10);
+    const to = parseInt(currentTo.value, 10);
+    return [from, to];
+  }
+
+  function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+    const rangeDistance = to.max - to.min;
+    const fromPosition = from.value - to.min;
+    const toPosition = to.value - to.min;
+    controlSlider.style.background = `linear-gradient(
+      to right,
+      ${sliderColor} 0%,
+      ${sliderColor} ${(fromPosition) / (rangeDistance) * 100}%,
+      ${rangeColor} ${((fromPosition) / (rangeDistance)) * 100}%,
+      ${rangeColor} ${(toPosition) / (rangeDistance) * 100}%, 
+      ${sliderColor} ${(toPosition) / (rangeDistance) * 100}%, 
+      ${sliderColor} 100%)`;
+  }
+
+  function setToggleAccessible(currentTarget) {
+    const toSlider = document.querySelector('#toSlider2');
+    if (Number(currentTarget.value) <= 0) {
+      toSlider.style.zIndex = 2;
+    } else {
+      toSlider.style.zIndex = 0;
+    }
+  }
+
+  const fromSlider = document.querySelector('#fromSlider2');
+  const toSlider = document.querySelector('#toSlider2');
+  const fromInput = document.querySelector('#fromInput2');
+  const toInput = document.querySelector('#toInput2');
+  fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+  setToggleAccessible(toSlider);
+
+  fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+  toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+  fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+  toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromSlider.value = from;
+    }
+  }
+
+  function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);
+    setToggleAccessible(toInput);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+    }
+  }
+
+  function controlFromSlider(fromSlider, toSlider, fromInput) {
+    const [from, to] = getParsed(fromSlider, toSlider);
+    fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromInput.value = from;
+    }
+  }
+
+  function controlToSlider(fromSlider, toSlider, toInput) {
+    const [from, to] = getParsed(fromSlider, toSlider);
+    fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+    setToggleAccessible(toSlider);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+      toSlider.value = from;
+    }
+  }
+
+  function getParsed(currentFrom, currentTo) {
+    const from = parseInt(currentFrom.value, 10);
+    const to = parseInt(currentTo.value, 10);
+    return [from, to];
+  }
+
+  function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+    const rangeDistance = to.max - to.min;
+    const fromPosition = from.value - to.min;
+    const toPosition = to.value - to.min;
+    controlSlider.style.background = `linear-gradient(
+      to right,
+      ${sliderColor} 0%,
+      ${sliderColor} ${(fromPosition) / (rangeDistance) * 100}%,
+      ${rangeColor} ${((fromPosition) / (rangeDistance)) * 100}%,
+      ${rangeColor} ${(toPosition) / (rangeDistance) * 100}%, 
+      ${sliderColor} ${(toPosition) / (rangeDistance) * 100}%, 
+      ${sliderColor} 100%)`;
+  }
+
+  function setToggleAccessible(currentTarget) {
+    const toSlider = document.querySelector('#toSlider2');
+    if (Number(currentTarget.value) <= 0) {
+      toSlider.style.zIndex = 2;
+    } else {
+      toSlider.style.zIndex = 0;
+    }
+  }
+
+  const fromSlider = document.querySelector('#fromSlider3');
+  const toSlider = document.querySelector('#toSlider3');
+  const fromInput = document.querySelector('#fromInput3');
+  const toInput = document.querySelector('#toInput3');
+  fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+  setToggleAccessible(toSlider);
+
+  fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+  toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+  fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+  toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromSlider.value = from;
+    }
+  }
+
+  function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);
+    setToggleAccessible(toInput);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+    }
+  }
+
+  function controlFromSlider(fromSlider, toSlider, fromInput) {
+    const [from, to] = getParsed(fromSlider, toSlider);
+    fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromInput.value = from;
+    }
+  }
+
+  function controlToSlider(fromSlider, toSlider, toInput) {
+    const [from, to] = getParsed(fromSlider, toSlider);
+    fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+    setToggleAccessible(toSlider);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+      toSlider.value = from;
+    }
+  }
+
+  function getParsed(currentFrom, currentTo) {
+    const from = parseInt(currentFrom.value, 10);
+    const to = parseInt(currentTo.value, 10);
+    return [from, to];
+  }
+
+  function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+    const rangeDistance = to.max - to.min;
+    const fromPosition = from.value - to.min;
+    const toPosition = to.value - to.min;
+    controlSlider.style.background = `linear-gradient(
+      to right,
+      ${sliderColor} 0%,
+      ${sliderColor} ${(fromPosition) / (rangeDistance) * 100}%,
+      ${rangeColor} ${((fromPosition) / (rangeDistance)) * 100}%,
+      ${rangeColor} ${(toPosition) / (rangeDistance) * 100}%, 
+      ${sliderColor} ${(toPosition) / (rangeDistance) * 100}%, 
+      ${sliderColor} 100%)`;
+  }
+
+  function setToggleAccessible(currentTarget) {
+    const toSlider = document.querySelector('#toSlider2');
+    if (Number(currentTarget.value) <= 0) {
+      toSlider.style.zIndex = 2;
+    } else {
+      toSlider.style.zIndex = 0;
+    }
+  }
+
+  const fromSlider = document.querySelector('#fromSlider4');
+  const toSlider = document.querySelector('#toSlider4');
+  const fromInput = document.querySelector('#fromInput4');
+  const toInput = document.querySelector('#toInput4');
+  fillSlider(fromSlider, toSlider, '#E0E5EB', '#FFB273', toSlider);
+  setToggleAccessible(toSlider);
+
+  fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+  toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+  fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+  toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  $('.catalog__open').click(function (event) {
+    $(this).css('display', 'none');
+    $('.catalog__see').slideToggle();
+    $('.about__content').addClass('opened');
+    return false;
   });
 });
-document.addEventListener('DOMContentLoaded', function () {
-  $(document).ready(function () {
-    $("#up2").on('click', function () {
-      $("#incdec2 input").val(parseInt($("#incdec2 input").val()) + 1);
-    });
-
-    $("#down2").on('click', function () {
-      $("#incdec2 input").val(parseInt($("#incdec2 input").val()) - 1);
-    });
-
+document.addEventListener("DOMContentLoaded", () => {
+  $('.catalog__open2').click(function (event) {
+    $(this).css('display', 'none');
+    $('.catalog__see2').slideToggle();
+    $('.about__content').addClass('opened');
+    return false;
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  $('.catalog__open3').click(function (event) {
+    $(this).css('display', 'none');
+    $('.catalog__see3').slideToggle();
+    $('.about__content').addClass('opened');
+    return false;
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  $('.catalog__open4').click(function (event) {
+    $(this).css('display', 'none');
+    $('.catalog__see4').slideToggle();
+    $('.about__content').addClass('opened');
+    return false;
   });
 });
 document.addEventListener("DOMContentLoaded", () => {
@@ -83,13 +451,6 @@ document.addEventListener("DOMContentLoaded", () => {
       $('html, body').animate({ scrollTop: $(scroll_el).offset().top - 50 }, 800); // анимируем скроолинг к элементу scroll_el
     }
     return false; // выключаем стандартное действие
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  $('.menu li a').click(function (event) {
-    $('.menu-btn').toggleClass('active');
-    $('.menu').toggleClass('active');
-    return false;
   });
 });
 window.addEventListener("DOMContentLoaded", function () {
@@ -292,7 +653,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (itemClass == "accordeon__button closed") {
       this.className = "accordeon__button active";
       var panel = this.nextElementSibling;
-      panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.maxHeight = panel.scrollHeight + "100px";
     }
 
   }
@@ -331,6 +692,162 @@ document.addEventListener("DOMContentLoaded", () => {
       this.className = "accordeon__button2 active";
       var panel2 = this.nextElementSibling;
       panel2.style.maxHeight = panel2.scrollHeight + "px";
+    }
+
+  }
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  var accordeonButtons3 = document.getElementsByClassName("accordeon__button3");
+
+  //пишем событие при клике на кнопки - вызов функции toggle
+  for (var i = 0; i < accordeonButtons3.length; i++) {
+    var accordeonButton3 = accordeonButtons3[i];
+
+    accordeonButton3.addEventListener("click", toggleItems, false);
+  }
+
+  //пишем функцию
+  function toggleItems() {
+
+    // переменная кнопки(актульная) с классом
+    var itemClass3 = this.className;
+
+    // добавляем всем кнопкам класс close
+    for (var i = 0; i < accordeonButtons3.length; i++) {
+      accordeonButtons3[i].className = "accordeon__button3 closed";
+    }
+
+    // закрываем все открытые панели с текстом
+    var pannels3 = document.getElementsByClassName("accordeon__panel3");
+    for (var z = 0; z < pannels3.length; z++) {
+      pannels3[z].style.maxHeight = 0;
+    }
+
+    // проверка. если кнопка имеет класс close при нажатии
+    // к актуальной(нажатой) кнопке добававляем активный класс
+    // а панели - которая находится рядом задаем высоту
+    if (itemClass3 == "accordeon__button3 closed") {
+      this.className = "accordeon__button3 active";
+      var panel3 = this.nextElementSibling;
+      panel3.style.maxHeight = panel3.scrollHeight + "100px";
+    }
+
+  }
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  var accordeonButtons4 = document.getElementsByClassName("accordeon__button4");
+
+  //пишем событие при клике на кнопки - вызов функции toggle
+  for (var i = 0; i < accordeonButtons4.length; i++) {
+    var accordeonButton4 = accordeonButtons4[i];
+
+    accordeonButton4.addEventListener("click", toggleItems, false);
+  }
+
+  //пишем функцию
+  function toggleItems() {
+
+    // переменная кнопки(актульная) с классом
+    var itemClass4 = this.className;
+
+    // добавляем всем кнопкам класс close
+    for (var i = 0; i < accordeonButtons4.length; i++) {
+      accordeonButtons4[i].className = "accordeon__button4 closed";
+    }
+
+    // закрываем все открытые панели с текстом
+    var pannels4 = document.getElementsByClassName("accordeon__panel4");
+    for (var z = 0; z < pannels4.length; z++) {
+      pannels4[z].style.maxHeight = 0;
+    }
+
+    // проверка. если кнопка имеет класс close при нажатии
+    // к актуальной(нажатой) кнопке добававляем активный класс
+    // а панели - которая находится рядом задаем высоту
+    if (itemClass4 == "accordeon__button4 closed") {
+      this.className = "accordeon__button4 active";
+      var panel4 = this.nextElementSibling;
+      panel4.style.maxHeight = panel4.scrollHeight + "100px";
+    }
+
+  }
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  var accordeonButtons5 = document.getElementsByClassName("accordeon__button5");
+
+  //пишем событие при клике на кнопки - вызов функции toggle
+  for (var i = 0; i < accordeonButtons5.length; i++) {
+    var accordeonButton5 = accordeonButtons5[i];
+
+    accordeonButton5.addEventListener("click", toggleItems, false);
+  }
+
+  //пишем функцию
+  function toggleItems() {
+
+    // переменная кнопки(актульная) с классом
+    var itemClass5 = this.className;
+
+    // добавляем всем кнопкам класс close
+    for (var i = 0; i < accordeonButtons5.length; i++) {
+      accordeonButtons5[i].className = "accordeon__button5 closed";
+    }
+
+    // закрываем все открытые панели с текстом
+    var pannels5 = document.getElementsByClassName("accordeon__panel5");
+    for (var z = 0; z < pannels5.length; z++) {
+      pannels5[z].style.maxHeight = 0;
+    }
+
+    // проверка. если кнопка имеет класс close при нажатии
+    // к актуальной(нажатой) кнопке добававляем активный класс
+    // а панели - которая находится рядом задаем высоту
+    if (itemClass5 == "accordeon__button5 closed") {
+      this.className = "accordeon__button5 active";
+      var panel5 = this.nextElementSibling;
+      panel5.style.maxHeight = panel5.scrollHeight + "px";
+    }
+
+  }
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  var accordeonButtons6 = document.getElementsByClassName("accordeon__button6");
+
+  //пишем событие при клике на кнопки - вызов функции toggle
+  for (var i = 0; i < accordeonButtons6.length; i++) {
+    var accordeonButton6 = accordeonButtons6[i];
+
+    accordeonButton6.addEventListener("click", toggleItems, false);
+  }
+
+  //пишем функцию
+  function toggleItems() {
+
+    // переменная кнопки(актульная) с классом
+    var itemClass6 = this.className;
+
+    // добавляем всем кнопкам класс close
+    for (var i = 0; i < accordeonButtons6.length; i++) {
+      accordeonButtons6[i].className = "accordeon__button6 closed";
+    }
+
+    // закрываем все открытые панели с текстом
+    var pannels6 = document.getElementsByClassName("accordeon__panel6");
+    for (var z = 0; z < pannels6.length; z++) {
+      pannels6[z].style.maxHeight = 0;
+    }
+
+    // проверка. если кнопка имеет класс close при нажатии
+    // к актуальной(нажатой) кнопке добававляем активный класс
+    // а панели - которая находится рядом задаем высоту
+    if (itemClass6 == "accordeon__button6 closed") {
+      this.className = "accordeon__button6 active";
+      var panel6 = this.nextElementSibling;
+      panel6.style.maxHeight = panel6.scrollHeight + "100px";
     }
 
   }
@@ -690,6 +1207,54 @@ document.addEventListener("DOMContentLoaded", () => {
   menuBtn.addEventListener('click', function () {
     menuBtn.classList.toggle('active');
     menu.classList.toggle('active');
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  let menuBtn2 = document.querySelector('.menu-btn2');
+  let menu2 = document.querySelector('.menu2');
+  menuBtn2.addEventListener('click', function () {
+    menuBtn2.classList.toggle('active');
+    menu2.classList.toggle('active');
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  let menuBtn3 = document.querySelector('.menu-btn3');
+  let menu3 = document.querySelector('.menu3');
+  menuBtn3.addEventListener('click', function () {
+    menuBtn3.classList.toggle('active');
+    menu3.classList.toggle('active');
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  let menuBtn4 = document.querySelector('.menu-btn4');
+  let menu4 = document.querySelector('.menu4');
+  menuBtn4.addEventListener('click', function () {
+    menuBtn4.classList.toggle('active');
+    menu4.classList.toggle('active');
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  let menuBtn5 = document.querySelector('.menu-btn5');
+  let menu5 = document.querySelector('.menu5');
+  menuBtn5.addEventListener('click', function () {
+    menuBtn5.classList.toggle('active');
+    menu5.classList.toggle('active');
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  let menuBtn6 = document.querySelector('.menu-btn6');
+  let menu6 = document.querySelector('.menu6');
+  menuBtn6.addEventListener('click', function () {
+    menuBtn6.classList.toggle('active');
+    menu6.classList.toggle('active');
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  let menuBtn7 = document.querySelector('.menu-btn7');
+  let menu7 = document.querySelector('.menu7');
+  menuBtn7.addEventListener('click', function () {
+    menuBtn7.classList.toggle('active');
+    menu7.classList.toggle('active');
   });
 });
 // svg
