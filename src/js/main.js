@@ -52,6 +52,92 @@ document.addEventListener("DOMContentLoaded", () => {
   new ItcTabs('.tabs');
 });
 document.addEventListener("DOMContentLoaded", () => {
+  $(function () {
+    $('.sliderr').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      fade: true,
+      slidesToScroll: 1,
+      asNavFor: '.slider-nav',
+      responsive: [
+        {
+          breakpoint: 1199,
+          settings: {
+            slidesToShow: 1,
+          }
+        },
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 1,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            dots: true,
+            slidesToShow: 1,
+          }
+        }
+      ]
+    });
+    $('.slider-nav').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.sliderr',
+      focusOnSelect: true,
+      vertical: true,
+      responsive: [
+        {
+          breakpoint: 1199,
+          settings: {
+            vertical: false,
+            focusOnSelect: false,
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            vertical: false,
+            focusOnSelect: false,
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 576,
+          settings: {
+            vertical: false,
+            focusOnSelect: false,
+            slidesToShow: 3,
+          }
+        }
+      ]
+    });
+  });
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const loc_box = $('.second');
+  $('.second').click(function () {
+    loc_box.addClass('active');
+    $('.catalog__box').addClass('area');
+    $('.first').removeClass('active');
+    $(this).addClass('active');
+  });
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const loc_box = $('.first');
+  $('.first').click(function () {
+    loc_box.addClass('active');
+    $('.second').removeClass('active');
+    $('.catalog__box').removeClass('area');
+    $(this).addClass('active');
+  });
+
+});
+document.addEventListener("DOMContentLoaded", () => {
   function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
     const [from, to] = getParsed(fromInput, toInput);
     fillSlider(fromInput, toInput, '#E0E5EB', '#FFB273', controlSlider);

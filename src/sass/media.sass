@@ -270,7 +270,39 @@
       display: none
    .catalog__item
       height: 450px
+   .catalog__box.area
+      margin-left: 0
+   .catalog__box.area 
+      .catalog__left
+         height: 340px
+      .catalog__item
+         width: 31.6%
+      .catalog__title
+         font-size: 27px
+      .catalog__sum span, .catalog__sum
+         font-size: 21px
+      .catalog__text p
+         font-size: 18px
+   .sliderr
+      max-width: 440px
+      .slick-track, .slick-list
+         height: 100%
+      .slick-slide
+         display: flex
+         align-items: center
+         justify-content: center
+   .sliderr .slider__item
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 0 20px
 @media screen and (max-width: 1199px)
+   .catalog__box.area .catalog__item
+      width: 100%
+      margin-right: 0 !important
+   .catalog__box.area .catalog__left
+      height: 400px
    .tabs__pane_show
       background: rgb(248, 248, 248)
       padding-top: 40px
@@ -679,6 +711,65 @@
       width: 50%
    .catalog__view
       display: none
+   .card__box
+      flex-direction: column 
+      align-items: center
+   .sliderr
+      order: 1
+      margin-right: 0
+      max-width: 100%
+      margin-bottom: 30px
+   .card__info
+      order: 3
+   .slider-nav
+      order: 2
+      width: 100%
+      max-width: 940px
+      margin: 0px -10px 50px
+   .slider-nav .slick-slide
+      margin: 0px 10px
+      max-width: inherit
+   .card__info
+      max-width: 100%
+   .exp__box
+      flex-direction: column 
+      align-items: center
+   .exp
+      padding: 50px 0
+   .exp__content
+      max-width: 100% 
+      margin-right: 0
+      margin-bottom: 40px
+   .char__row
+      padding-left: 0
+      justify-content: space-between
+      position: relative
+      p 
+         &:first-child
+            margin-right: 0
+         &:nth-child(2)
+            text-align: right
+      &:before 
+         content: ""
+         display: block
+         position: absolute
+         left: -500%
+         top: 0
+         height: 100%
+         width: 500%
+         background: #f8f8f8
+      &:after 
+         content: ""
+         display: block
+         position: absolute
+         right: -500%
+         top: 0
+         height: 100%
+         width: 500%
+         background: #f8f8f8
+      &:nth-child(2n)
+         &:before, &:after 
+            display: none
 @media ( max-width: 991px )
    input, textarea, select
       -webkit-appearance: none
@@ -1442,16 +1533,17 @@
    .catalog .tabs__nav
       margin-bottom: 0
    .catalog__left
-      height: 275px
+      height: 275px !important
+      margin-bottom: 25px !important
    .catalog__title
-      font-size: 20px
+      font-size: 20px !important
    .catalog__sum
-      font-size: 14px
+      font-size: 14px !important
       margin-bottom: 17px
       span 
-         font-size: 14px
+         font-size: 14px !important
    .catalog__text p
-      font-size: 14px
+      font-size: 14px !important
       &:nth-child(n+2)
          display: none
    .catalog__item
@@ -1492,6 +1584,71 @@
       right: 20px
    .catalog__el
       margin-bottom: 40px
+   .catalog__box.area .catalog__left
+      height: 340px
+   .sliderr
+      height: 280px
+      margin-bottom: 5px
+   .slick-dots
+      display: none !important
+   .slider-nav
+      margin: 0px -5px 40px
+      .slick-slide
+         height: 86px
+         padding: 10px
+         margin: 0 5px
+   .card__top
+      display: none
+   .card__sum
+      font-size: 27px
+      margin-right: 12px
+   .card__proc
+      font-size: 27px
+   .card__sale
+      font-size: 14px
+   .card__see
+      font-size: 14px
+      margin-bottom: 27px
+   .card .custom-checkbox + label
+      margin-right: 17px
+   .card__btn
+      width: 100%
+      height: 50px
+      font-size: 14px
+   .card__one
+      margin-bottom: 12px
+      img 
+         height: 40px
+      p 
+         font-size: 14px
+         margin-left: 17px
+   .card__firm
+      margin-top: 20px
+      font-size: 14px
+   .exp__content h2
+      margin-bottom: 25px
+   .exp__content p
+      font-size: 14px
+      margin-bottom: 15px
+   .exp
+      padding: 30px 0 50px
+   .exp__box img 
+      width: 100%
+   .char
+      padding: 30px 0
+   .char__text
+      font-size: 14px
+      margin-top: 25px
+   .char__row p
+      font-size: 12px
+      &:first-child
+         width: 160px
+   .slider-nav .slick-slide img
+      height: 100%
+      position: relative
+      z-index: -1
+   .char__table
+      margin-top: 40px
 @media screen and (max-width: 360px)
    .container 
       max-width: 326px !important

@@ -2248,8 +2248,9 @@ input[type="range"]
          color: rgb(16, 25, 32)
          font-size: 20px
          font-weight: 400
-      a 
+      div 
          margin-left: 10px
+         cursor: pointer
          &.active 
             rect
                stroke: $or
@@ -2399,6 +2400,38 @@ input[type="range"]
    .calc__item
       img 
          margin-right: 15px
+   &__box.area
+      display: flex
+      justify-content: flex-start
+      flex-wrap: wrap
+      margin-left: -20px
+      .catalog__item
+         width: 32.2%
+         padding: 0
+         margin-right: 20px
+         height: auto
+         flex-direction: column
+         .main__area
+            flex-wrap: wrap 
+            div
+               margin-bottom: 10px
+         &:nth-child(2n)
+            background: white 
+            flex-direction: column-reverse
+         &:nth-child(3n)
+            margin-right: 0
+         &:hover 
+            .main__area, .main__button
+               opacity: 1
+      .catalog__left
+         margin-right: 0 !important
+         margin-left: 0 !important
+         margin-bottom: 40px
+         height: 394px
+      .catalog__right .catalog__name, .catalog__links, .catalog__text p:nth-child(n+2)
+         display: none
+      .catalog__right
+         height: auto
 .switch  
    position: relative 
    display: block 
@@ -2442,3 +2475,203 @@ input:checked + .slider:before
    border-radius: 50% 
 .menu-btn2, .menu-btn3, .menu-btn4, .menu-btn5, .menu-btn6, .menu-btn7
    display: none
+.main-card
+   .main__box:first-child
+      display: none
+.sliderr
+   max-width: 890px
+   width: 100%
+   margin-right: 30px
+   height: 529px
+   .slider__item
+      display: flex !important
+      width: 100%
+      height: 100%
+      align-items: center
+      justify-content: center
+      padding: 0 132px
+      img 
+         width: 100%
+         object-fit: contain
+         height: auto
+.slider-nav
+   max-width: 100%
+   margin-right: 0px
+   margin-top: 0px
+   width: 168px
+   position: relative 
+   .slick-slide 
+      margin: 0 0 20px
+      width: 100% 
+      height: 163px
+      box-sizing: border-box;
+      border: 2px solid rgb(242, 242, 242);
+      display: flex
+      align-items: center
+      justify-content: center
+      flex: 1 0 auto 
+      max-width: 168px
+      padding: 20px
+      cursor: pointer
+      img 
+         width: 100%
+         object-fit: contain
+         height: auto
+   .slick-current
+      border: 2px solid #f1b306
+.item__slider 
+   display: flex
+.slick-prev:before, .slick-next:before 
+   display: none
+.slick-prev, .slick-next 
+   display: none !important
+.slider 
+   .slick-arrow
+      display: none !important
+.card 
+   &__one 
+      align-items: center
+      margin-bottom: 15px
+      width: max-content
+      p 
+         color: rgb(16, 25, 32)
+         font-size: 16px
+         font-weight: 500
+         line-height: 130%
+         margin-left: 20px
+         transition: 0.5s 
+      &:hover 
+         p 
+            color: $or
+   &__firm 
+      margin-top: 30px
+      color: rgb(84, 84, 84)
+      font-size: 16px
+      font-weight: 500
+      span 
+         margin-left: 15px
+         color: $or
+   &__btn 
+      margin-bottom: 20px
+   &__row 
+      margin-bottom: 30px
+   .custom-checkbox + label
+      flex-direction: column-reverse
+      align-items: center
+      margin-right: 20px
+   .custom-checkbox + label::before
+      margin-right: 0
+      margin-top: 10px
+      width: 27px
+      background: transparent
+      border: none
+      height: 3px
+   .custom-checkbox:checked + label::before
+      background: $or
+   &__see
+      margin-bottom: 30px
+      color: rgb(0, 119, 255)
+      font-size: 16px
+      font-weight: 600
+      display: block
+      width: max-content
+      line-height: 150%
+      &:hover 
+         color: $or
+   &__content 
+      align-items: center
+      margin-bottom: 5px
+   &__sum
+      color: rgb(16, 25, 32)
+      font-size: 30px
+      font-weight: 600
+      line-height: 140%
+      font-family: 'Proxima Nova Lt'
+      margin-right: 9px
+   &__proc 
+      color: $or
+      font-family: 'Proxima Nova Lt'
+      font-size: 30px
+      font-weight: 600
+      line-height: 140%
+      margin-right: 13px
+   &__sale
+      color: rgb(131, 131, 131)
+      font-size: 16px
+      font-family: 'Proxima Nova Lt'
+      font-weight: 400
+      text-decoration: line-through
+   &__box 
+      justify-content: space-between
+      align-items: flex-start
+   &__info 
+      width: 100%
+      max-width: 431px
+   &__top 
+      align-items: center
+      margin-bottom: 30px
+      span 
+         color: rgb(84, 84, 84)
+         font-size: 16px
+         font-weight: 500
+         line-height: 130%
+         margin-right: 15px
+      p 
+         color: rgb(0, 0, 0)
+         font-size: 16px
+         font-weight: 500
+         line-height: 130%
+         margin-right: 45px
+      a 
+         color: $or
+         font-size: 16px
+         font-weight: 500
+         line-height: 130%
+         &:hover 
+            color: #000
+.exp 
+   padding: 100px 0 
+   &__box 
+      align-items: flex-end
+   &__content 
+      width: 100%
+      max-width: 55.6%
+      margin-right: 60px
+      h2 
+         margin-bottom: 40px
+      p 
+         color: rgb(16, 25, 32)
+         font-size: 20px
+         font-weight: 400
+         line-height: 140%
+         margin-bottom: 20px
+         &:last-child
+            margin-bottom: 0
+.char 
+   padding: 100px 0
+   &__text 
+      margin-top: 40px
+      color: rgb(16, 25, 32)
+      font-size: 20px
+      font-weight: 400
+      line-height: 130%
+   &__table 
+      margin-top: 50px
+   &__row 
+      align-items: center
+      padding: 27px 0
+      padding-left: 138px
+      background: rgb(248, 248, 248)
+      p 
+         color: rgb(16, 25, 32)
+         font-size: 20px
+         font-weight: 600
+         line-height: 130%
+         text-transform: uppercase
+         &:first-child
+            width: 450px
+            margin-right: 25%
+      &:nth-child(2n)
+         background: white
+.photo-card
+   border-top: none
